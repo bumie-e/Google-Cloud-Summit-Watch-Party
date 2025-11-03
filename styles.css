@@ -146,6 +146,28 @@ h1{font-size:28px; margin:0 0 8px}
   transition: background 0.2s ease;
 }
 
+/* --- Workshop Section Spacing --- */
+#workshop {
+  margin: 80px auto; /* adds vertical spacing */
+  padding: 0 40px;   /* adds horizontal padding */
+  max-width: 1100px; /* centers and limits width */
+}
+
+#workshop .container {
+  margin: 0 auto;
+}
+
+#workshop h2, 
+#workshop h3 {
+  text-align: left;
+}
+
+#workshop p {
+  text-align: left;
+  line-height: 1.6;
+}
+
+
 .learn-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
