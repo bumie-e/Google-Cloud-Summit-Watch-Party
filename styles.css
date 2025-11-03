@@ -100,36 +100,36 @@ h1{font-size:28px; margin:0 0 8px}
 .tag{margin-top:10px; display:inline-block; font-weight:600; padding:6px 8px; border-radius:8px; background:linear-gradient(90deg, rgba(124,77,255,0.08), rgba(66,133,244,0.04)); color:#232323}
 
 .section{padding:36px 0}
-.agenda-list{padding-left:18px}
-.two-col{display:grid; grid-template-columns:1fr 300px; gap:24px; align-items:start}
+
+.agenda-section {
+  background: var(--surface);
+  padding: 60px 0;
+}
 
 .agenda-table {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto 0 auto;
+  border-collapse: collapse;
+  display: table;
 }
 
 .agenda-row {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
-  padding: 14px 18px;
-  box-shadow: 0 4px 12px rgba(15, 23, 36, 0.03);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: table-row;
 }
 
-.agenda-row:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(15, 23, 36, 0.06);
+.agenda-row .time,
+.agenda-row .desc {
+  display: table-cell;
+  padding: 14px 20px;
+  vertical-align: top;
 }
 
 .agenda-row .time {
+  width: 150px;
   font-weight: 600;
   color: var(--accent-start);
-  font-size: 15px;
+  white-space: nowrap;
 }
 
 .agenda-row .desc {
@@ -137,15 +137,36 @@ h1{font-size:28px; margin:0 0 8px}
   font-size: 15px;
 }
 
-@media (max-width: 600px) {
+.agenda-row:nth-child(odd) {
+  background: rgba(66, 133, 244, 0.03);
+}
+
+.agenda-row:hover {
+  background: rgba(66, 133, 244, 0.06);
+  transition: background 0.2s ease;
+}
+
+@media (max-width: 700px) {
   .agenda-row {
-    grid-template-columns: 1fr;
-    gap: 4px;
+    display: block;
+    padding: 12px 0;
+  }
+  .agenda-row .time,
+  .agenda-row .desc {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
   }
   .agenda-row .time {
     font-weight: 700;
+    margin-bottom: 2px;
   }
 }
+
+
+.agenda-list{padding-left:18px}
+.two-col{display:grid; grid-template-columns:1fr 300px; gap:24px; align-items:start}
+
 
 
 .site-footer{padding:24px 0; color:var(--muted); font-size:13px; border-top:1px solid rgba(15,23,36,0.04)}
