@@ -307,6 +307,16 @@ h1{font-size:28px; margin:0 0 8px}
   background: linear-gradient(90deg, var(--red), var(--black));
   transform: translateY(-3px);
   box-shadow: 0 8px 22px rgba(219,68,55,0.4);
+  
+}
+
+/* ---------------- Image ---------------- */
+.image-placeholder{
+  width:600px;
+  height:300px;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 4px 16px rgba(32,33,36,0.1);
 }
 
 /* ---------------- FOOTER ---------------- */
