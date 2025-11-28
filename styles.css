@@ -1,12 +1,23 @@
 :root{
   --bg:#f6f8fb;
   --surface:#ffffff;
-  --muted:#6b7280;
-  --accent-start:#4285F4;
-  --accent-end:#7C4DFF;
+
+  --muted:#3d3d3d;
+
+  /* New Color Palette */
+  --green:#0F9D58;
+  --lemon:#F4B400;
+  --red:#DB4437;
+  --black:#202124;
+
+  /* Gradients using the new palette */
+  --accent-start: var(--green);
+  --accent-end: var(--lemon);
+
   --max-width:1100px;
   --radius:12px;
   --container-padding:24px;
+
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
@@ -14,7 +25,7 @@
 body{
   margin:0;
   background:var(--bg);
-  color:#0f1724;
+  color:var(--black);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.45;
@@ -26,9 +37,11 @@ body{
   padding: 28px var(--container-padding);
 }
 
+/* ---------------- HEADER ---------------- */
+
 .site-header{
-  background:linear-gradient(90deg, rgba(66,133,244,0.06), rgba(124,77,255,0.03));
-  border-bottom:1px solid rgba(15,23,36,0.04);
+  background:linear-gradient(90deg, rgba(15,157,88,0.06), rgba(244,180,0,0.06));
+  border-bottom:1px solid rgba(32,33,36,0.05);
   position:sticky;
   top:0;
   z-index:40;
@@ -47,11 +60,20 @@ body{
 }
 .logo span{font-weight:600}
 .nav a{margin-left:18px; text-decoration:none; color:var(--muted)}
-.nav a.cta{padding:8px 12px; border-radius:8px; background:linear-gradient(90deg,var(--accent-start),var(--accent-end)); color:white; font-weight:600; text-decoration:none}
+.nav a.cta{
+  padding:8px 12px; 
+  border-radius:8px;
+  background:linear-gradient(90deg,var(--accent-start),var(--accent-end));
+  color:white; 
+  font-weight:600; 
+  text-decoration:none
+}
 .nav a.small{font-size:14px}
 
+/* ---------------- HERO ---------------- */
+
 .hero{
-  background: linear-gradient(180deg, rgba(66,133,244,0.06), rgba(124,77,255,0.02));
+  background: linear-gradient(180deg, rgba(15,157,88,0.06), rgba(244,180,0,0.05));
   padding:36px 0;
 }
 .hero-inner{
@@ -66,7 +88,7 @@ body{
 h1{font-size:28px; margin:0 0 8px}
 .lead{color:var(--muted); margin-bottom:16px}
 .meta{list-style:none; padding:0; margin:0 0 18px}
-.meta li{margin-bottom:6px; color:#24303b}
+.meta li{margin-bottom:6px; color:var(--black)}
 
 .hero-actions{display:flex; gap:12px; margin:12px 0}
 .btn{
@@ -75,29 +97,39 @@ h1{font-size:28px; margin:0 0 8px}
   border-radius:10px;
   text-decoration:none;
   font-weight:600;
-  border:1px solid rgba(15,23,36,0.06);
+  border:1px solid rgba(32,33,36,0.1);
 }
 .btn.primary{background:linear-gradient(90deg,var(--accent-start),var(--accent-end)); color:#fff}
-.btn.outline{background:transparent; border:1px solid rgba(15,23,36,0.08)}
+.btn.outline{background:transparent; border:1px solid rgba(32,33,36,0.15)}
 .btn.ghost{background:transparent; color:var(--muted)}
 
-.small-note{font-size:13px; color:var(--muted); margin-top:8px}
+/* ---------------- CARDS ---------------- */
 
 .card{
   background:var(--surface);
   border-radius:var(--radius);
-  box-shadow:0 6px 22px rgba(15,23,36,0.04);
+  box-shadow:0 6px 22px rgba(32,33,36,0.05);
   padding:18px;
   overflow:hidden;
 }
 .card img{width:100%; display:block; border-radius:8px; margin-top:8px}
 
 .card.highlight{
-  border:1px solid rgba(124,77,255,0.08);
-  background:linear-gradient(180deg, rgba(255,255,255,0.96), #fff);
+  border:1px solid rgba(15,157,88,0.12);
+  background:linear-gradient(180deg, rgba(255,255,255,0.97), #fff);
 }
 
-.tag{margin-top:10px; display:inline-block; font-weight:600; padding:6px 8px; border-radius:8px; background:linear-gradient(90deg, rgba(124,77,255,0.08), rgba(66,133,244,0.04)); color:#232323}
+.tag{
+  margin-top:10px;
+  display:inline-block;
+  font-weight:600;
+  padding:6px 8px;
+  border-radius:8px;
+  background:linear-gradient(90deg, rgba(15,157,88,0.12), rgba(244,180,0,0.1));
+  color:#232323;
+}
+
+/* ---------------- AGENDA ---------------- */
 
 .section{padding:36px 0}
 
@@ -128,36 +160,36 @@ h1{font-size:28px; margin:0 0 8px}
 .agenda-row .time {
   width: 150px;
   font-weight: 600;
-  color: var(--accent-start);
+  color: var(--green);
   white-space: nowrap;
 }
 
 .agenda-row .desc {
-  color: #1f2937;
+  color: var(--black);
   font-size: 15px;
 }
 
 .agenda-row:nth-child(odd) {
-  background: rgba(66, 133, 244, 0.03);
+  background: rgba(15,157,88,0.05);
 }
 
 .agenda-row:hover {
-  background: rgba(66, 133, 244, 0.06);
+  background: rgba(244,180,0,0.12);
   transition: background 0.2s ease;
 }
 
-/* --- Workshop Section Styling --- */
+/* ---------------- WORKSHOP CARD ---------------- */
+
 .workshop-card {
   background: var(--surface);
-  border: 1px solid rgba(15, 23, 36, 0.08);
+  border: 1px solid rgba(32, 33, 36, 0.08);
   border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(15, 23, 36, 0.06);
+  box-shadow: 0 8px 24px rgba(32,33,36,0.08);
   padding: 40px;
   margin: 60px auto;
   max-width: 1200px;
 }
 
-/* Two-column layout (content + sidebar) */
 .workshop-card .two-col {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -165,14 +197,14 @@ h1{font-size:28px; margin:0 0 8px}
   align-items: start;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .workshop-card .two-col {
     grid-template-columns: 1fr;
   }
 }
 
-/* Learn Cards Grid */
+/* -------- Learn Cards -------- */
+
 .learn-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -182,68 +214,69 @@ h1{font-size:28px; margin:0 0 8px}
 
 .learn-card {
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 36, 0.08);
+  border: 1px solid rgba(32,33,36,0.1);
   border-radius: 10px;
   padding: 18px 20px;
-  box-shadow: 0 2px 8px rgba(15, 23, 36, 0.04);
+  box-shadow: 0 2px 8px rgba(32,33,36,0.04);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .learn-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(15, 23, 36, 0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
 .learn-card h4 {
   margin-top: 0;
-  color: var(--accent-start);
+  color: var(--green);
   font-size: 17px;
 }
 
 .learn-card p {
   font-size: 15px;
-  color: #374151;
-  line-height: 1.5;
+  color: #444;
+  line-height: 1.55;
 }
 
-/* --- Register Section --- */
+/* ---------------- REGISTER SECTION ---------------- */
+
 .register-section {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 100px 20px;
-  background: linear-gradient(135deg, #1a73e8 0%, #0b57d0 100%);
+  background: linear-gradient(135deg, var(--green) 0%, var(--lemon) 100%);
   color: #fff;
   text-align: center;
 }
 
 .register-card {
   background: #ffffff;
-  color: #1f2937;
+  color: var(--black);
   border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
   padding: 60px 40px;
   max-width: 700px;
   width: 100%;
-  text-align: center;
+  text-align:center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .register-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
 }
 
 .register-card h2 {
   font-size: 2rem;
-  color: #1a73e8;
+  color: var(--green);
   margin-bottom: 16px;
 }
 
 .register-subtitle {
   font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin: 20px 0 32px;
 }
 
 .event-details {
@@ -253,113 +286,49 @@ h1{font-size:28px; margin:0 0 8px}
   margin-bottom: 40px;
 }
 
-.event-detail {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 1rem;
-  color: #374151;
-}
-
 .event-detail i {
-  color: #1a73e8;
-  font-size: 1.2rem;
+  color: var(--green);
 }
 
-/* Register Button */
 .register-btn {
   display: inline-block;
-  background: linear-gradient(90deg, #1a73e8, #0b57d0);
+  background: linear-gradient(90deg, var(--green), var(--lemon));
   color: #fff;
   padding: 14px 36px;
   border-radius: 30px;
   font-weight: 600;
   font-size: 1rem;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(26, 115, 232, 0.3);
+  text-decoration:none;
+  box-shadow: 0 6px 16px rgba(15,157,88,0.30);
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .register-btn:hover {
-  background: linear-gradient(90deg, #0b57d0, #174ea6);
+  background: linear-gradient(90deg, var(--red), var(--black));
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(26, 115, 232, 0.4);
+  box-shadow: 0 8px 22px rgba(219,68,55,0.4);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .register-card {
-    padding: 40px 20px;
-  }
+/* ---------------- FOOTER ---------------- */
 
-  .register-btn {
-    width: 100%;
-  }
+.site-footer{
+  padding:24px 0; 
+  color:var(--muted); 
+  font-size:13px; 
+  border-top:1px solid rgba(32,33,36,0.06)
 }
 
-
-/* .learn-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-  margin-top: 20px;
-}
-
-.learn-card {
-  background: var(--surface);
-  border: 1px solid rgba(15,23,36,0.06);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(15,23,36,0.04);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.learn-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(15,23,36,0.06);
-}
-
-.learn-card h4 {
-  margin-top: 0;
-  color: var(--accent-start);
-  font-size: 18px;
-}
-
-.learn-card p {
-  color: #1f2937;
-  font-size: 15px;
-  line-height:1.4;
-} */
-
-
-@media (max-width: 700px) {
-  .agenda-row {
-    display: block;
-    padding: 12px 0;
-  }
-  .agenda-row .time,
-  .agenda-row .desc {
-    display: block;
-    width: 100%;
-    padding: 6px 0;
-  }
-  .agenda-row .time {
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-}
-
-.agenda-list{padding-left:18px}
-.two-col{display:grid; grid-template-columns:1fr 300px; gap:24px; align-items:start}
-
-
-
-.site-footer{padding:24px 0; color:var(--muted); font-size:13px; border-top:1px solid rgba(15,23,36,0.04)}
+/* MOBILE TWEAKS */
 
 @media (max-width:900px){
   .hero-inner{flex-direction:column}
   .hero-right{width:100%}
   .two-col{grid-template-columns:1fr}
   .nav a{display:none}
+}
+
+@media (max-width:700px){
+  .agenda-row {display:block; padding:12px 0;}
+  .agenda-row .time,
+  .agenda-row .desc {display:block; width:100%; padding:6px 0;}
 }
